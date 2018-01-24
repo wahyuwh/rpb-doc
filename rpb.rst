@@ -1,7 +1,6 @@
-Electronic Data Capture (EDC)
-=============================
-
-RPB integrates with OpenClinica (3.9) Electronic Data Capture system which is used to build eCRF forms and conduct study data.
+RadPlanBio (RPB)
+================
+RPB-portal serves and entry point into the platform and provides integration middleware.
 
 ================== ======== ================== ==============
 OS                 Init     Application Server Database      
@@ -18,10 +17,10 @@ PostgreSQL
 - Root user: postgres
 
 .. code-block:: bash
-	:caption: Create clinica role and openclinica database
+	:caption: Create radplanbio role database
 
-	psql -U postgres -c "CREATE ROLE clinica LOGIN ENCRYPTED PASSWORD 'clinica' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
-	psql -U postgres -c "CREATE DATABASE openclinica WITH ENCODING='UTF8' OWNER=clinica"
+	psql -U postgres -c "CREATE ROLE radplanbio LOGIN ENCRYPTED PASSWORD 'radplanbio' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
+	psql -U postgres -c "CREATE DATABASE radplanbio WITH ENCODING='UTF8' OWNER=radplanbio"
 
 
 Tomcat

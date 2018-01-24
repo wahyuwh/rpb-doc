@@ -1,7 +1,7 @@
 Reverse Web Proxy
 =================
 
-NGINX
+NGINX + SSL certificate (e.g. https://radplanbio.partner-site.net)
 
 ================== ======== ==================
 OS                 Init     Application Server 

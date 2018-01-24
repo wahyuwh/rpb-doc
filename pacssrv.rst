@@ -1,7 +1,7 @@
 PACS Server
 ===========
 
-This server is running research PACS and its database.
+This server is running research PACS application and its database.
 
 ===== ======================================== ====== =====================
 Label CUP                                      Memory Disk

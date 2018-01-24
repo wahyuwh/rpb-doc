@@ -1,7 +1,6 @@
-Electronic Data Capture (EDC)
-=============================
-
-RPB integrates with OpenClinica (3.9) Electronic Data Capture system which is used to build eCRF forms and conduct study data.
+Pseudonym Generator (PIDG)
+===============================================================
+RPB integrates with Mainzelliste (1.6.1) to provide first class patient pseudonym generation and identity management.
 
 ================== ======== ================== ==============
 OS                 Init     Application Server Database      
@@ -18,10 +17,10 @@ PostgreSQL
 - Root user: postgres
 
 .. code-block:: bash
-	:caption: Create clinica role and openclinica database
+	:caption: Create mainzelliste database
 
-	psql -U postgres -c "CREATE ROLE clinica LOGIN ENCRYPTED PASSWORD 'clinica' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
-	psql -U postgres -c "CREATE DATABASE openclinica WITH ENCODING='UTF8' OWNER=clinica"
+	psql -U postgres -c "CREATE ROLE mainzelliste LOGIN ENCRYPTED PASSWORD 'mainzelliste' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
+	psql -U postgres -c "CREATE DATABASE mainzelliste WITH ENCODING='UTF8' OWNER=mainzelliste"
 
 
 Tomcat

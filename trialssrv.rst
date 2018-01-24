@@ -1,7 +1,7 @@
 Trials Server
 =============
 
-This server is running most of the clinical trials applications and databases.
+This server is running most of the clinical trials applications and databases (EDC, PIDG, RPB).
 
 ====== ========================================= ====== ====================
 Label  CUP                                       Memory Disk
