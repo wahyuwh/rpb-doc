@@ -22,6 +22,7 @@ PostgreSQL
 	psql -U postgres -c "CREATE ROLE mainzelliste LOGIN ENCRYPTED PASSWORD 'mainzelliste' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
 	psql -U postgres -c "CREATE DATABASE mainzelliste WITH ENCODING='UTF8' OWNER=mainzelliste"
 
-
 Tomcat
 ------
+
+:ref:`Application Server`

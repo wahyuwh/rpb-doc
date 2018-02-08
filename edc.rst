@@ -23,6 +23,7 @@ PostgreSQL
 	psql -U postgres -c "CREATE ROLE clinica LOGIN ENCRYPTED PASSWORD 'clinica' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
 	psql -U postgres -c "CREATE DATABASE openclinica WITH ENCODING='UTF8' OWNER=clinica"
 
-
 Tomcat
 ------
+
+:ref:`Application Server`

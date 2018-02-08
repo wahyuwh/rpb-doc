@@ -22,6 +22,7 @@ PostgreSQL
 	psql -U postgres -c "CREATE ROLE radplanbio LOGIN ENCRYPTED PASSWORD 'radplanbio' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
 	psql -U postgres -c "CREATE DATABASE radplanbio WITH ENCODING='UTF8' OWNER=radplanbio"
 
-
 Tomcat
 ------
+
+:ref:`Application Server`

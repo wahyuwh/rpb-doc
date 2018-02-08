@@ -10,3 +10,4 @@ Software
    pidg
    rpb
    proxy
+   appsrv
