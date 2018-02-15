@@ -11,3 +11,4 @@ Software
    rpb
    proxy
    appsrv
+   dcmutils

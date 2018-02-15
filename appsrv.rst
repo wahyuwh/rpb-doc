@@ -10,7 +10,8 @@ Application server process should be owned by operating system user (e.g. tomcat
 Missing Global Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Exception: java.lang.ClassNotFoundException: org.jvnet.staxex.XMLStreamReaderEx
+java.lang.ClassNotFoundException
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. code-block:: bash
 	:caption: Recommended global libraries in "TOMCAT_HOME/lib" folder
@@ -30,7 +31,8 @@ In case of deployment or performance issues, it is recommended to check if any e
 
 In general the are two types of memory areas used by JVM which are: heap and PermGen. It is possible to specify starting memory allocation and maximum memory allocation. For simplicity,  recommended is to set the starting and maximum values for each of memory area to the same value. In that way it is known exactly how much was assigned will actually be allocated by JVM and consequently available for Tomcat applications.
 
-Exception: java.lang.OutOfMemoryError: Java heap space
+java.lang.OutOfMemoryError: Java heap space
+"""""""""""""""""""""""""""""""""""""""""""
 
 Recommended is to increase a heap memory space if you know that deployed applications will be creating lots of object instances. Every new object instance will occupy more space within heap memory space.
 
@@ -39,11 +41,39 @@ Recommended is to increase a heap memory space if you know that deployed applica
 
 	-Xms8192m -Xmx8192m
 
-PermGen on the other hand holds internal representation of Java classes. The number of classes (the definition according the which object instances are initiated) should be mostly fixed per application. In that sense it is recommended to increase PermGen if there are more applications within one Tomcat. Each application will (depending on the size of application itself not the database) will occupy certain space from PermGen after the deployment.
+java.lang.OutOfMemoryError: PermGen space
+"""""""""""""""""""""""""""""""""""""""""
 
-Exception: java.lang.OutOfMemoryError: PermGen space
+PermGen on the other hand holds internal representation of Java classes. The number of classes (the definition according the which object instances are initiated) should be mostly fixed per application. In that sense it is recommended to increase PermGen if there are more applications within one Tomcat. Each application will (depending on the size of application itself not the database) will occupy certain space from PermGen after the deployment.
 
 .. code-block:: bash
 	:caption: To use 512MB PermGen space you can apply these setting
 
 	-XX:PermSize=512m -XX:MaxPermSize=512m
+
+Logging
+^^^^^^^
+
+Log of tomcat stored in catalina.out is ever growing and in order to prevent problems it is recommended to setup the automatic rotation of catalina.out log daily or when it becomes bigger than 100 MB.
+
+.. code-block:: bash
+	:caption: Install log rotation utility
+
+	apt-get install logrotate 
+
+.. code-block:: bash
+	:caption: Create rotation config file
+
+	vi /etc/logrotate.d/tomcat
+
+.. code-block:: bash
+	:caption: Create the rotation configuration for catalina.out
+	
+	/usr/local/tomcat/log/catalina.out {  
+ 		copytruncate  
+ 		daily  
+ 		rotate 7  
+ 		compress  
+ 		missingok  
+ 		size 100M  
+	}
