@@ -11,7 +11,7 @@ Missing Global Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 java.lang.ClassNotFoundException
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""
 
 .. code-block:: bash
 	:caption: Recommended global libraries in "TOMCAT_HOME/lib" folder
@@ -69,7 +69,7 @@ Log of tomcat stored in catalina.out is ever growing and in order to prevent pro
 .. code-block:: bash
 	:caption: Create the rotation configuration for catalina.out
 	
-	/usr/local/tomcat/log/catalina.out {  
+	/usr/local/tomcat/logs/catalina.out {  
  		copytruncate  
  		daily  
  		rotate 7  
