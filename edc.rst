@@ -27,3 +27,32 @@ Tomcat
 ------
 
 :ref:`Application Server`
+
+
+OpenClinica
+-----------
+OpenClinica instance need to be configured to know where to look for Designer application if it is installed.
+
+.. code-block:: bash
+	:caption: Specify URL of Designer for redirection from OpenClinica
+
+	vi TOMCAT_HOME/openclinica.config/datainfo.properties
+
+	designerURL=http://hostname.de:8080/Designer
+
+Tomcat need to be restarted to apply these configuration changes.
+
+
+Designer
+--------
+
+Designer distributable WAR file need to be deployed to Tomcat. Afterward the Designer need to be configured to allow OpenClinica instances to use it. Property "allowHosts" need to list all servers (running OpenClinica instances) which are allowed to used Designer (only server host and port are necessary, without OpenClinica application name).
+
+.. code-block:: bash
+	:caption: Specify servers that are allowed to use the Designer
+
+	vi TOMCAT_HOME/webapps/Designer/WEB-INF/classes/resource.properties
+	
+	allowHosts=localhost:8080, hostname.de:8080, radplanbio.partner-site.de
+
+Tomcat need to be restarted to apply these configuration changes.
