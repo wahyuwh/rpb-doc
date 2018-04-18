@@ -3,12 +3,14 @@ Electronic Data Capture (EDC)
 
 RPB integrates with OpenClinica (3.9) Electronic Data Capture system which is used to build eCRF forms and conduct study data.
 
-================== ======== ================== ==============
-OS                 Init     Application Server Database      
-================== ======== ================== ==============
-Debian 9 (Stretch) System V JDK 7, Tomcat 7    PostgreSQL 8.4
-                                               PostgreSQL 9.5
-================== ======== ================== ==============
+================== =========== ================== ==============
+OS                 Init        Application Server Database
+================== =========== ================== ==============
+Debian 9 (Stretch) System V    JDK 7, Tomcat 7    PostgreSQL 8.4
+                                                  PostgreSQL 9.5
+
+CentOS 7           ``systemd`` JDK 7, Tomcat 7    PostgreSQL 8.4
+================== =========== ================== ==============
 
 PostgreSQL
 ----------
@@ -22,6 +24,11 @@ PostgreSQL
 
 	psql -U postgres -c "CREATE ROLE clinica LOGIN ENCRYPTED PASSWORD 'clinica' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE"
 	psql -U postgres -c "CREATE DATABASE openclinica WITH ENCODING='UTF8' OWNER=clinica"
+
+PostgreSQL 8.4 on Centos 7
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Centos 7 prefers systemd as init system. An example of postgresql
 
 Tomcat
 ------
@@ -52,7 +59,7 @@ Designer distributable WAR file need to be deployed to Tomcat. Afterward the Des
 	:caption: Specify servers that are allowed to use the Designer
 
 	vi TOMCAT_HOME/webapps/Designer/WEB-INF/classes/resource.properties
-	
+
 	allowHosts=localhost:8080, hostname.de:8080, radplanbio.partner-site.de
 
 Tomcat need to be restarted to apply these configuration changes.
